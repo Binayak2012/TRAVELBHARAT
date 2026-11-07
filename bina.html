@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore India State by State">
+    <title>TravelBharat </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="bina.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="TravelBharat home">
+            <span class="brand-mark">B</span><span>Travel<span class="brand-accent">Bharat</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav class="main-nav" id="mainNav">
+            <a class="active" href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#states">Explore States</a>
+            <a href="#about">About</a>
+        </nav>
+        <a class="header-cta" href="#destinations">Start exploring <span>↗</span></a>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-image" role="img" aria-label="Taj Mahal at sunrise"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="eyebrow light"><span></span> YOUR JOURNEY STARTS HERE</div>
+                <h1>Find your own<br><em>incredible India.</em></h1>
+                <p>From timeless monuments to hidden mountain villages, discover the places, stories and cultures that
+                    make India unforgettable.</p>
+                <a class="button button-light" href="#destinations">Explore destinations <span>→</span></a>
+            </div>
+            <div class="hero-note"><span class="note-line"></span><span>30°10' N · AGRA, INDIA</span></div>
+            <div class="hero-count"><strong>01</strong><span> / 05</span></div>
+        </section>
+
+        <section class="search-section" aria-label="Find a destination">
+            <div class="search-intro"><span class="search-icon">⌕</span>
+                <div><strong>Where will you go?</strong><small>Find your next Indian adventure</small></div>
+            </div>
+            <label class="search-field"><span>DESTINATION</span><input id="searchInput" type="search"
+                    placeholder="Search places or states..." autocomplete="off"></label>
+            <label class="search-field"><span>EXPERIENCE</span><select id="categoryFilter">
+                    <option value="all">All experiences</option>
+                    <option value="Heritage">Heritage & culture</option>
+                    <option value="Nature">Nature & wildlife</option>
+                    <option value="Religious">Spiritual journeys</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Beach">Beaches</option>
+                </select></label>
+            <button class="button button-dark" id="searchButton">Find places <span>→</span></button>
+        </section>
+
+        <section class="section destinations-section" id="destinations">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow"><span></span> HANDPICKED FOR YOU</div>
+                    <h2>Places that stay<br><em>with you.</em></h2>
+                </div>
+                <p>Every corner of India has a story worth discovering. Start with some of our favourite destinations.
+                </p>
+            </div>
+            <div class="filter-row">
+                <div class="filter-chips" id="quickFilters">
+                    <button class="chip active" data-category="all">All places</button>
+                    <button class="chip" data-category="Heritage">Heritage</button>
+                    <button class="chip" data-category="Nature">Nature</button>
+                    <button class="chip" data-category="Religious">Spiritual</button>
+                    <button class="chip" data-category="Adventure">Adventure</button>
+                    <button class="chip" data-category="Beach">Beaches</button>
+                </div>
+                <span class="result-count" id="resultCount">6 destinations</span>
+            </div>
+            <div class="destination-grid" id="destinationGrid" aria-live="polite"></div>
+            <div class="empty-state hidden" id="emptyState"><span>⌕</span>
+                <h3>No destinations found</h3>
+                <p>Try another search term or choose a different category.</p><button class="button button-dark"
+                    id="resetSearch">Reset filters</button>
+            </div>
+        </section>
+
+        <section class="states-section" id="states">
+            <div class="section states-inner">
+                <div class="section-heading state-heading">
+                    <div>
+                        <div class="eyebrow light"><span></span> 28 STATES · 8 UNION TERRITORIES</div>
+                        <h2>India, in all<br>its <em>colours.</em></h2>
+                    </div>
+                    <p>Choose a region and let curiosity lead the way. Each state brings its own flavours, traditions
+                        and landscapes.</p>
+                </div>
+                <div class="states-layout">
+                    <div class="state-list" id="stateList">
+                        <button class="state-item selected" data-state="Rajasthan"><span>01</span> Rajasthan
+                            <b>↗</b></button>
+                        <button class="state-item" data-state="Kerala"><span>02</span> Kerala <b>↗</b></button>
+                        <button class="state-item" data-state="Uttar Pradesh"><span>03</span> Uttar Pradesh
+                            <b>↗</b></button>
+                        <button class="state-item" data-state="Himachal Pradesh"><span>04</span> Himachal Pradesh
+                            <b>↗</b></button>
+                        <button class="state-item" data-state="Goa"><span>05</span> Goa <b>↗</b></button>
+                        <button class="state-item" data-state="Karnataka"><span>06</span> Karnataka <b>↗</b></button>
+                    </div>
+                    <div class="state-feature" id="stateFeature">
+                        <img id="stateImage"
+                            src="https://images.unsplash.com/to-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=85"
+                            alt="Hawa Mahal and historic architecture in Rajasthan">
+                        <div class="state-feature-shade"></div>
+                        <div class="state-feature-content"><span class="state-tag" id="stateTag">THE LAND OF
+                                KINGS</span>
+                            <h3 id="stateTitle">Rajasthan</h3>
+                            <p id="stateDescription">Desert dunes, magnificent forts and colourful cities steeped in
+                                royal history.</p><button class="round-arrow" id="stateExplore"
+                                aria-label="Explore Rajasthan">↗</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section" id="about">
+            <blockquote>India is not just a destination.<br>It's a <em>thousand different journeys.</em></blockquote>
+            <p>TravelBharat · A digital guide to the soul of India</p>
+        </section>
+
+        <section class="newsletter section">
+            <div>
+                <div class="eyebrow"><span></span> A LITTLE INSPIRATION</div>
+                <h2>Let India find<br><em>its way to you.</em></h2>
+                <p>Get destination ideas and travel inspiration for your next journey.</p>
+            </div>
+            <form id="newsletterForm" class="newsletter-form"><label for="emailInput">YOUR EMAIL ADDRESS</label>
+                <div class="email-row"><input id="emailInput" type="email" placeholder="you@example.com"
+                        required><button class="button button-dark" type="submit">Sign me up <span>→</span></button>
+                </div><small id="newsletterMessage">Demo form only — no emails will be sent.</small>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="#home"><span class="brand-mark">B</span><span>Travel<span
+                    class="brand-accent">Bharat</span><small>EXPLORE INDIA</small></span></a>
+        <p>Made for the curious. Inspired by India.</p>
+        <div class="footer-links"><a href="#home">Home</a><a href="#destinations">Destinations</a><a
+                href="#states">States</a></div>
+        <span class="copyright">© <span id="year"></span> TravelBharat</span>
+    </footer>
+
+    <dialog class="details-dialog" id="detailsDialog">
+        <button class="dialog-close" id="dialogClose" aria-label="Close destination details">×</button>
+        <img id="dialogImage" src="" alt="">
+        <div class="dialog-body"><span class="destination-category" id="dialogCategory"></span>
+            <h2 id="dialogTitle"></h2>
+            <p id="dialogDescription"></p>
+            <div class="dialog-facts">
+                <div><small>BEST TIME TO VISIT</small><strong id="dialogBestTime"></strong></div>
+                <div><small>LOCATION</small><strong id="dialogLocation"></strong></div>
+            </div><a id="mapLink" class="button button-dark" href="#" target="_blank" rel="noopener">Open map
+                <span>↗</span></a>
+            <p class="demo-note">Confirm timings, entry fees and local conditions before
+                travelling.</p>
+        </div>
+    </dialog>
+
+
+
+    <script src="bina.js"></script>
+
+
+</body>
+
+</html>

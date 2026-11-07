@@ -1,0 +1,18 @@
+{
+  "name": "btravelbharat",
+  "version": "1.0.0",
+  "description": "TravelBharat-Explore India State by State",
+  "license": "ISC",
+  "author": "Binayak Chandra Sahu",
+  "type": "commonjs",
+  "main": "btrav.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongoose": "^9.12.0"
+  },
+  "devDependencies": {}
+}
