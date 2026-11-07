@@ -19,6 +19,10 @@ const stateInfo = {
   "Karnataka": { tag: "WHERE CULTURES MEET", description: "From royal palaces to ancient ruins, explore a state shaped by many eras.", image: "https://s7ap1.scene7.com/is/image/incredibleindia/2-vitthala-temple-complex-hampi-karnataka-city-hero?qlt=82&ts=1726721012585", place: "Hampi" }
 };
 
+
+window.onload = function(){
+  showState("Rajasthan");
+};
 const grid = document.getElementById("destinationGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
