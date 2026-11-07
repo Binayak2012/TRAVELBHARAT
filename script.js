@@ -20,9 +20,6 @@ const stateInfo = {
 };
 
 
-window.onload = function(){
-  showState("Rajasthan");
-};
 const grid = document.getElementById("destinationGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
@@ -38,6 +35,7 @@ function renderDestinations() {
     const matchesCategory = category === "all" || place.category === category;
     return matchesQuery && matchesCategory;
   });
+
   grid.innerHTML = filtered.map(place => `
     <article class="destination-card" tabindex="0" role="button" aria-label="View details for ${place.name}" data-id="${place.id}">
       <div class="card-image-wrap">
@@ -83,10 +81,12 @@ categoryFilter.addEventListener("change", () => {
   document.querySelectorAll(".chip").forEach(chip => chip.classList.toggle("active", chip.dataset.category === "all"));
   renderDestinations();
 });
+
 document.getElementById("searchButton").addEventListener("click", () => {
   renderDestinations();
   document.getElementById("destinations").scrollIntoView({ behavior: "smooth" });
 });
+
 document.getElementById("quickFilters").addEventListener("click", event => {
   const chip = event.target.closest(".chip");
   if (!chip) return;
@@ -95,6 +95,7 @@ document.getElementById("quickFilters").addEventListener("click", event => {
   document.querySelectorAll(".chip").forEach(item => item.classList.toggle("active", item === chip));
   renderDestinations();
 });
+
 document.getElementById("resetSearch").addEventListener("click", () => {
   searchInput.value = "";
   categoryFilter.value = "all";
@@ -102,10 +103,12 @@ document.getElementById("resetSearch").addEventListener("click", () => {
   document.querySelectorAll(".chip").forEach(chip => chip.classList.toggle("active", chip.dataset.category === "all"));
   renderDestinations();
 });
+
 document.getElementById("dialogClose").addEventListener("click", () => document.getElementById("detailsDialog").close());
 document.getElementById("detailsDialog").addEventListener("click", event => {
   if (event.target === event.currentTarget) event.currentTarget.close();
 });
+
 document.getElementById("stateList").addEventListener("click", event => {
   const button = event.target.closest(".state-item");
   if (!button) return;
@@ -119,6 +122,7 @@ document.getElementById("stateList").addEventListener("click", event => {
   document.getElementById("stateDescription").textContent = info.description;
   document.getElementById("stateExplore").setAttribute("aria-label", `Explore ${state}`);
 });
+
 document.getElementById("stateExplore").addEventListener("click", () => {
   const state = document.getElementById("stateTitle").textContent;
   searchInput.value = state;
@@ -128,11 +132,13 @@ document.getElementById("stateExplore").addEventListener("click", () => {
   renderDestinations();
   document.getElementById("destinations").scrollIntoView({ behavior: "smooth" });
 });
+
 document.getElementById("newsletterForm").addEventListener("submit", event => {
   event.preventDefault();
   document.getElementById("newsletterMessage").textContent = "Thanks! This demo form is working locally; connect a backend to collect subscriptions.";
   document.getElementById("emailInput").value = "";
 });
+
 const menuToggle = document.getElementById("menuToggle");
 menuToggle.addEventListener("click", () => {
   const nav = document.getElementById("mainNav");
@@ -140,10 +146,12 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", String(open));
   menuToggle.textContent = open ? "×" : "☰";
 });
+
 document.querySelectorAll("#mainNav a").forEach(link => link.addEventListener("click", () => {
   document.getElementById("mainNav").classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.textContent = "☰";
 }));
+
 document.getElementById("year").textContent = new Date().getFullYear();
 renderDestinations();
