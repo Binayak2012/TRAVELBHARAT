@@ -20,6 +20,10 @@ const stateInfo = {
 };
 
 
+
+
+
+
 const grid = document.getElementById("destinationGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
